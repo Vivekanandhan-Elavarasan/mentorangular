@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "mentorangular"
+    }
+  },
+  "defaultProject": "mentorangular",
+  "cli": {
+    "analytics": "bceb25ec-a446-42f3-bbf2-7bf6f274af91"
+  }
 }
