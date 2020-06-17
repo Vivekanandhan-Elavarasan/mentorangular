@@ -1,40 +1,41 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, of } from 'rxjs'
+import { Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ServeraService {
-
   students;
   mentor;
   constructor(private http: HttpClient) {
     this.listOfMentors();
     this.listOfStudents();
   }
+
   createMentor(data): Observable<any> {
     // console.log(data);
-    return this.http.post('https://mentorstudent3.herokuapp.com/mentor', data);
+    return this.http.post(`${environment.urlprod}/mentor`, data);
   }
   createStudent(data): Observable<any> {
-    return this.http.post('https://mentorstudent3.herokuapp.com/students', data);
+    return this.http.post(`${environment.urlprod}/students`, data);
   }
   assignStudent(data): Observable<any> {
-    return this.http.post('https://mentorstudent3.herokuapp.com/assignstudent', data);
+    return this.http.post(`${environment.urlprod}/assignstudent`, data);
   }
   updateMentor(data): Observable<any> {
-    return this.http.put('https://mentorstudent3.herokuapp.com/update', data);
+    return this.http.put(`${environment.urlprod}/update`, data);
   }
   listStudents(data): Observable<any> {
-    return this.http.post('https://mentorstudent3.herokuapp.com/liststudents', data);
+    return this.http.post(`${environment.urlprod}/liststudents`, data);
   }
   listOfStudents() {
-    this.http.get('https://mentorstudent3.herokuapp.com/listofstudents').subscribe(
+    this.http.get(`${environment.urlprod}/listofstudents`).subscribe(
       (data) => {
         this.students = data;
         return of(true);
-      
+        //  console.log(this.students);
       },
       (err) => {
         console.log(err);
@@ -42,7 +43,7 @@ export class ServeraService {
     );
   }
   listOfMentors() {
-    this.http.get('http://localhost:3000/listofmentors').subscribe(
+    this.http.get(`${environment.urlprod}/listofmentors`).subscribe(
       (data) => {
         this.mentor = data;
       },

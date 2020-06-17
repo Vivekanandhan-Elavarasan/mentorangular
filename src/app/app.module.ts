@@ -11,6 +11,7 @@ import { MentorComponent } from './mentor/mentor.component';
 import { StudentComponent } from './student/student.component';
 import { ListComponent } from './list/list.component';
 import { UpdateComponent } from './update/update.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { UpdateComponent } from './update/update.component';
     NgbModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy,useClass:HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

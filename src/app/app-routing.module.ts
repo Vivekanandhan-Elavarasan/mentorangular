@@ -8,10 +8,10 @@ import{UpdateComponent} from './update/update.component';
 
 const routes: Routes = [{
   path:'',
-  component:MentorComponent
+  component: StudentComponent                          
 },{
-  path:'create-student',
-  component:StudentComponent
+  path:'create-mentor',
+  component: MentorComponent
 },{
   path:'assign',
   component:AssignComponent
